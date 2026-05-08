@@ -22,9 +22,7 @@
           }
         }
       },
-      "block_order": [
-        "announcement-bar-0"
-      ],
+      "block_order": ["announcement-bar-0"],
       "settings": {
         "auto_rotate": false,
         "change_slides_speed": 5,
@@ -55,15 +53,11 @@
       }
     },
     "custom_header_gzkNX8": {
-      "type": "custom-header",
+      "type": "header",
       "disabled": true,
       "name": "Custom Header",
       "settings": {}
     }
   },
-  "order": [
-    "announcement-bar",
-    "header",
-    "custom_header_gzkNX8"
-  ]
+  "order": ["announcement-bar", "header", "custom_header_gzkNX8"]
 }
