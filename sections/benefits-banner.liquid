@@ -1,0 +1,180 @@
+<section class="benefits-banner">
+
+  <div class="page-width">
+
+    <div class="benefits-banner__wrapper">
+
+      <!-- LEFT IMAGE -->
+
+      <div class="benefits-banner__image">
+
+        {% if section.settings.main_image != blank %}
+          {{
+            section.settings.main_image
+            | image_url: width: 1200
+            | image_tag:
+              loading: 'lazy',
+              alt: 'Benefits Banner'
+          }}
+        {% endif %}
+
+      </div>
+
+      <!-- CONTENT -->
+
+      <div class="benefits-banner__content">
+
+        <p class="benefits-banner__subheading">
+          {{ section.settings.subheading }}
+        </p>
+
+        <h2>
+          {{ section.settings.heading }}
+        </h2>
+
+        <div class="benefits-banner__desc">
+          {{ section.settings.description }}
+        </div>
+
+        {% if section.settings.button_label != blank %}
+          <a
+            href="{{ section.settings.button_link }}"
+            class="benefits-banner__button"
+          >
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+
+      </div>
+
+      <!-- FEATURES -->
+
+      <div class="benefits-banner__features">
+
+        {% for block in section.blocks %}
+
+          <div class="benefit-item">
+
+            <div class="benefit-item__icon">
+
+              {% if block.settings.icon != blank %}
+                {{
+                  block.settings.icon
+                  | image_url: width: 80
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: block.settings.title
+                }}
+              {% endif %}
+
+            </div>
+
+            <div class="benefit-item__content">
+
+              <h3>
+                {{ block.settings.title }}
+              </h3>
+
+              <p>
+                {{ block.settings.text }}
+              </p>
+
+            </div>
+
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Benefits Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Athlete Image"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "CLEAN. EFFECTIVE. TRUSTED."
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Supplements That Support Every Goal"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "From gaining lean muscle to improving endurance, our supplements are designed to deliver real results."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "LEARN MORE"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Feature Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "High Quality"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Premium ingredients"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits Banner",
+      "blocks": [
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

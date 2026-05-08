@@ -1,0 +1,119 @@
+<section class="custom-hero">
+  <div class="page-width">
+    <div class="custom-hero__wrapper">
+
+      <!-- LEFT CONTENT -->
+      <div class="custom-hero__content">
+
+        <p class="custom-hero__subheading">
+          {{ section.settings.subheading }}
+        </p>
+
+        <h1 class="custom-hero__title">
+          {{ section.settings.heading }}
+        </h1>
+
+        <div class="custom-hero__desc">
+          {{ section.settings.description }}
+        </div>
+
+        <div class="custom-hero__buttons">
+
+          {% if section.settings.primary_btn_label != blank %}
+            <a
+              href="{{ section.settings.primary_btn_link }}"
+              class="button button--primary"
+            >
+              {{ section.settings.primary_btn_label }}
+            </a>
+          {% endif %}
+
+          {% if section.settings.secondary_btn_label != blank %}
+            <a
+              href="{{ section.settings.secondary_btn_link }}"
+              class="button button--secondary"
+            >
+              {{ section.settings.secondary_btn_label }}
+            </a>
+          {% endif %}
+
+        </div>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="custom-hero__image">
+
+        {% if section.settings.hero_image != blank %}
+          {{
+            section.settings.hero_image
+            | image_url: width: 1400
+            | image_tag:
+              loading: 'eager',
+              class: 'hero-main-image',
+              alt: 'Sculptor Nutrition'
+          }}
+        {% endif %}
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "FUEL YOUR BODY. BUILD YOUR BEST."
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Premium Nutrition For Peak Performance"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Scientifically formulated supplements designed to help you build muscle, boost energy, and achieve your fitness goals.</p>"
+    },
+    {
+      "type": "text",
+      "id": "primary_btn_label",
+      "label": "Primary Button Label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "primary_btn_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_btn_label",
+      "label": "Secondary Button Label",
+      "default": "EXPLORE COLLECTIONS"
+    },
+    {
+      "type": "url",
+      "id": "secondary_btn_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Product Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Hero"
+    }
+  ]
+}
+{% endschema %}

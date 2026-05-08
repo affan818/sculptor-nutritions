@@ -1,0 +1,90 @@
+<section class="trust-badges">
+  <div class="page-width">
+
+    <div class="trust-badges__wrapper">
+
+      {% for block in section.blocks %}
+        <div class="trust-badge">
+
+          {% if block.settings.icon != blank %}
+            <div class="trust-badge__icon">
+              {{
+                block.settings.icon
+                | image_url: width: 80
+                | image_tag:
+                  loading: 'lazy',
+                  alt: block.settings.title
+              }}
+            </div>
+          {% endif %}
+
+          <div class="trust-badge__content">
+
+            <h3>
+              {{ block.settings.title }}
+            </h3>
+
+            <p>
+              {{ block.settings.text }}
+            </p>
+
+          </div>
+
+        </div>
+      {% endfor %}
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust Badges",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Premium Quality"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Ingredients you can trust"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust Badges",
+      "blocks": [
+        {
+          "type": "badge"
+        },
+        {
+          "type": "badge"
+        },
+        {
+          "type": "badge"
+        },
+        {
+          "type": "badge"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
