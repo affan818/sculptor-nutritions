@@ -1,0 +1,144 @@
+<section class="premium-testimonials">
+
+  <div class="page-width">
+
+    <!-- HEADER -->
+
+    <div class="premium-testimonials__header">
+
+      <p>
+        TRUSTED BY ATHLETES
+      </p>
+
+      <h2>
+        {{ section.settings.heading }}
+      </h2>
+
+    </div>
+
+    <!-- GRID -->
+
+    <div class="premium-testimonials__grid">
+
+      {% for block in section.blocks %}
+
+        <div class="testimonial-card">
+
+          <!-- TOP -->
+
+          <div class="testimonial-card__top">
+
+            <div class="testimonial-card__user">
+
+              {% if block.settings.image != blank %}
+
+                {{
+                  block.settings.image
+                  | image_url: width: 120
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: block.settings.name
+                }}
+
+              {% endif %}
+
+              <div>
+
+                <h3>
+                  {{ block.settings.name }}
+                </h3>
+
+                <span>
+                  {{ block.settings.role }}
+                </span>
+
+              </div>
+
+            </div>
+
+            <!-- RATING -->
+
+            <div class="testimonial-card__rating">
+              ★★★★★
+            </div>
+
+          </div>
+
+          <!-- REVIEW -->
+
+          <div class="testimonial-card__content">
+
+            “{{ block.settings.review }}”
+
+          </div>
+
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Premium Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Our Customers Say"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Customer Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer Name",
+          "default": "John Carter"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role",
+          "default": "Fitness Athlete"
+        },
+        {
+          "type": "textarea",
+          "id": "review",
+          "label": "Review",
+          "default": "These supplements completely improved my recovery and performance. Highly recommended."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

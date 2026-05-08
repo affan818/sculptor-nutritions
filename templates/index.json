@@ -9,62 +9,81 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "custom_hero_hMk6tW": {
+      "type": "custom-hero",
+      "name": "Custom Hero",
+      "settings": {
+        "subheading": "FUEL YOUR BODY. BUILD YOUR BEST.",
+        "heading": "Premium Nutrition For Peak Performance",
+        "description": "<p>Scientifically formulated supplements designed to help you build muscle, boost energy, and achieve your fitness goals.</p>",
+        "primary_btn_label": "SHOP NOW",
+        "primary_btn_link": "",
+        "secondary_btn_label": "EXPLORE COLLECTIONS",
+        "secondary_btn_link": "",
+        "hero_image": "shopify://shop_images/Untitled_design_20.png"
+      }
+    },
+    "trust_badges_8dNE6C": {
+      "type": "trust-badges",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "badge_x7CNgd": {
+          "type": "badge",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "icon": "shopify://shop_images/1_210df2a9-ef18-4898-9270-44ae980427ab.svg",
+            "title": "Premium Quality",
+            "text": "Ingredients you can trust"
           }
         },
-        "button": {
-          "type": "buttons",
+        "badge_DBPx3f": {
+          "type": "badge",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "icon": "shopify://shop_images/2.svg",
+            "title": "Premium Quality",
+            "text": "Ingredients you can trust"
+          }
+        },
+        "badge_4gE7f3": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/3.svg",
+            "title": "Premium Quality",
+            "text": "Ingredients you can trust"
+          }
+        },
+        "badge_4HL8xG": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/4.svg",
+            "title": "Premium Quality",
+            "text": "Ingredients you can trust"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "badge_x7CNgd",
+        "badge_DBPx3f",
+        "badge_4gE7f3",
+        "badge_4HL8xG"
       ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
+      "name": "Trust Badges",
+      "settings": {}
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
+        "collection": "all",
+        "products_to_show": 8,
         "title": "Featured products",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -72,13 +91,196 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 36
+      }
+    },
+    "category_showcase_87XBDD": {
+      "type": "category-showcase",
+      "blocks": {
+        "category_p63pW6": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/demo_1.png",
+            "title": "Protein",
+            "description": "Premium supplements",
+            "card_link": ""
+          }
+        },
+        "category_PXNbdh": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/demo_1.png",
+            "title": "Protein",
+            "description": "Premium supplements",
+            "card_link": ""
+          }
+        },
+        "category_8G7RUJ": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/demo_1.png",
+            "title": "Protein",
+            "description": "Premium supplements",
+            "card_link": ""
+          }
+        },
+        "category_m79jQt": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/demo_1.png",
+            "title": "Protein",
+            "description": "Premium supplements",
+            "card_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_p63pW6",
+        "category_PXNbdh",
+        "category_8G7RUJ",
+        "category_m79jQt"
+      ],
+      "name": "Category Showcase",
+      "settings": {
+        "heading": "Shop By Category",
+        "view_all_link": ""
+      }
+    },
+    "benefits_banner_UtVG3J": {
+      "type": "benefits-banner",
+      "blocks": {
+        "feature_apPLbA": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/7_5dea2d3b-4e1d-4509-b72c-1714dcf23fab.svg",
+            "title": "High Quality",
+            "text": "Premium ingredients"
+          }
+        },
+        "feature_NwEtmQ": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/7_5dea2d3b-4e1d-4509-b72c-1714dcf23fab.svg",
+            "title": "High Quality",
+            "text": "Premium ingredients"
+          }
+        },
+        "feature_BzfeFw": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/7_5dea2d3b-4e1d-4509-b72c-1714dcf23fab.svg",
+            "title": "High Quality",
+            "text": "Premium ingredients"
+          }
+        },
+        "feature_nFpwdk": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/7_5dea2d3b-4e1d-4509-b72c-1714dcf23fab.svg",
+            "title": "High Quality",
+            "text": "Premium ingredients"
+          }
+        }
+      },
+      "block_order": [
+        "feature_apPLbA",
+        "feature_NwEtmQ",
+        "feature_BzfeFw",
+        "feature_nFpwdk"
+      ],
+      "name": "Benefits Banner",
+      "settings": {
+        "main_image": "shopify://shop_images/Untitled_design_19.png",
+        "subheading": "CLEAN. EFFECTIVE. TRUSTED.",
+        "heading": "Supplements That Support Every Goal",
+        "description": "From gaining lean muscle to improving endurance, our supplements are designed to deliver real results.",
+        "button_label": "LEARN MORE",
+        "button_link": "shopify://pages/contact"
+      }
+    },
+    "community_reels_4yb3L3": {
+      "type": "community-reels",
+      "blocks": {
+        "video_P7zE37": {
+          "type": "video",
+          "settings": {}
+        },
+        "video_ew9Xbm": {
+          "type": "video",
+          "settings": {}
+        },
+        "video_7jWCBh": {
+          "type": "video",
+          "settings": {}
+        },
+        "video_Wn3xAG": {
+          "type": "video",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "video_P7zE37",
+        "video_ew9Xbm",
+        "video_7jWCBh",
+        "video_Wn3xAG"
+      ],
+      "name": "Community Reels",
+      "settings": {
+        "heading": "Real People. Real Results.",
+        "username": "Tag us @sculptor.nutritions to get featured."
+      }
+    },
+    "premium_testimonials_DDywhW": {
+      "type": "premium-testimonials",
+      "blocks": {
+        "testimonial_jT9Jhd": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_19.png",
+            "name": "John Carter",
+            "role": "Fitness Athlete",
+            "review": "These supplements completely improved my recovery and performance. Highly recommended."
+          }
+        },
+        "testimonial_WCdjiA": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_19.png",
+            "name": "John Carter",
+            "role": "Fitness Athlete",
+            "review": "These supplements completely improved my recovery and performance. Highly recommended."
+          }
+        },
+        "testimonial_gtqY9c": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_19.png",
+            "name": "John Carter",
+            "role": "Fitness Athlete",
+            "review": "These supplements completely improved my recovery and performance. Highly recommended."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_jT9Jhd",
+        "testimonial_WCdjiA",
+        "testimonial_gtqY9c"
+      ],
+      "name": "Premium Testimonials",
+      "settings": {
+        "heading": "What Our Customers Say"
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "custom_hero_hMk6tW",
+    "trust_badges_8dNE6C",
+    "featured_collection",
+    "category_showcase_87XBDD",
+    "benefits_banner_UtVG3J",
+    "community_reels_4yb3L3",
+    "premium_testimonials_DDywhW"
   ]
 }

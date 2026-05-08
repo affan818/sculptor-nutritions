@@ -1,0 +1,117 @@
+<section class="community-reels">
+
+<div class="page-width community-reels__layout">
+    <!-- HEADER -->
+
+    <div class="community-reels__header">
+
+      <div>
+
+        <p class="community-reels__subheading">
+          JOIN THE SCULPTOR COMMUNITY
+        </p>
+
+        <h2>
+          {{ section.settings.heading }}
+        </h2>
+
+        <span>
+          {{ section.settings.username }}
+        </span>
+<div class="community-reels__arrow">
+
+  <img
+    src="{{ 'reel-arrow.svg' | asset_url }}"
+    alt="Arrow"
+  >
+
+</div>
+      </div>
+
+    </div>
+
+    <!-- VIDEOS -->
+
+    <div class="community-reels__slider">
+
+      {% for block in section.blocks %}
+
+        <div class="community-reel-card">
+
+          {% if block.settings.video != blank %}
+
+            {{
+              block.settings.video
+              | video_tag:
+                autoplay: true,
+                loop: true,
+                muted: true,
+                controls: false,
+                playsinline: true,
+                preload: 'metadata',
+                class: 'community-reel-video'
+            }}
+
+          {% endif %}
+
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Community Reels",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real People. Real Results."
+    },
+    {
+      "type": "text",
+      "id": "username",
+      "label": "Instagram Username",
+      "default": "Tag us @sculptor.nutritions to get featured."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video Reel",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Upload Reel"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Community Reels",
+      "blocks": [
+        {
+          "type": "video"
+        },
+        {
+          "type": "video"
+        },
+        {
+          "type": "video"
+        },
+        {
+          "type": "video"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

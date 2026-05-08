@@ -1,0 +1,190 @@
+<footer class="sculptor-footer">
+
+  <div class="page-width">
+
+    <div class="sculptor-footer__grid">
+
+      <!-- BRAND -->
+
+      <div class="sculptor-footer__brand">
+
+        <a href="{{ routes.root_url }}">
+
+          {% if section.settings.logo != blank %}
+
+            {{
+              section.settings.logo
+              | image_url: width: 500
+              | image_tag:
+                loading: 'lazy',
+                alt: shop.name
+            }}
+
+          {% else %}
+
+            <span>
+              Sculptor Nutritions
+            </span>
+
+          {% endif %}
+
+        </a>
+
+        <p>
+          {{ section.settings.description }}
+        </p>
+
+        <!-- SOCIAL -->
+
+        <div class="sculptor-footer__socials">
+
+          <a href="#">
+            {{ 'icon-instagram.svg' | inline_asset_content }}
+          </a>
+
+          <a href="#">
+            {{ 'icon-facebook.svg' | inline_asset_content }}
+          </a>
+
+          <a href="#">
+            {{ 'icon-youtube.svg' | inline_asset_content }}
+          </a>
+
+          <a href="#">
+            {{ 'icon-tiktok.svg' | inline_asset_content }}
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- MENU 1 -->
+
+      <div class="sculptor-footer__menu">
+
+        <h3>
+          SHOP
+        </h3>
+
+        <ul>
+
+          {% for link in linklists.footer.links %}
+
+            <li>
+              <a href="{{ link.url }}">
+                {{ link.title }}
+              </a>
+            </li>
+
+          {% endfor %}
+
+        </ul>
+
+      </div>
+
+      <!-- MENU 2 -->
+
+      <div class="sculptor-footer__menu">
+
+        <h3>
+          COMPANY
+        </h3>
+
+        <ul>
+
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Our Ingredients</a></li>
+          <li><a href="#">Contact Us</a></li>
+
+        </ul>
+
+      </div>
+
+      <!-- MENU 3 -->
+
+      <div class="sculptor-footer__menu">
+
+        <h3>
+          CUSTOMER CARE
+        </h3>
+
+        <ul>
+
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns & Refunds</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+
+        </ul>
+
+      </div>
+
+      <!-- NEWSLETTER -->
+
+      <div class="sculptor-footer__newsletter">
+
+        <h3>
+          NEWSLETTER
+        </h3>
+
+        <p>
+          Stay updated with exclusive offers and new product launches.
+        </p>
+
+        <form>
+
+          <input
+            type="email"
+            placeholder="Enter your email"
+          >
+
+          <button type="submit">
+
+            →
+
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+    <!-- BOTTOM -->
+
+    <div class="sculptor-footer__bottom">
+
+      <p>
+        © 2026 Sculptor Nutritions. All Rights Reserved.
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+{% schema %}
+{
+  "name": "Custom Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer Logo"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Fuel your body. Build your best."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer"
+    }
+  ]
+}
+{% endschema %}
