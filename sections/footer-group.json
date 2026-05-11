@@ -15,7 +15,7 @@
       "type": "custom-footer",
       "name": "Custom Footer",
       "settings": {
-        "logo": "shopify://shop_images/sculptor-logo.png",
+        "logo": "{{ shop.brand.cover_image }}",
         "description": "Fuel your body. Build your best."
       }
     },
