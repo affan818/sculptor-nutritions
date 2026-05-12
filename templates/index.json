@@ -96,58 +96,6 @@
         "padding_bottom": 36
       }
     },
-    "category_showcase_87XBDD": {
-      "type": "category-showcase",
-      "blocks": {
-        "category_p63pW6": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/demo_1.png",
-            "title": "Protein",
-            "description": "Premium supplements",
-            "card_link": ""
-          }
-        },
-        "category_PXNbdh": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/demo_1.png",
-            "title": "Protein",
-            "description": "Premium supplements",
-            "card_link": ""
-          }
-        },
-        "category_8G7RUJ": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/demo_1.png",
-            "title": "Protein",
-            "description": "Premium supplements",
-            "card_link": ""
-          }
-        },
-        "category_m79jQt": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/demo_1.png",
-            "title": "Protein",
-            "description": "Premium supplements",
-            "card_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "category_p63pW6",
-        "category_PXNbdh",
-        "category_8G7RUJ",
-        "category_m79jQt"
-      ],
-      "name": "Category Showcase",
-      "settings": {
-        "heading": "Shop By Category",
-        "view_all_link": ""
-      }
-    },
     "benefits_banner_UtVG3J": {
       "type": "benefits-banner",
       "blocks": {
@@ -278,7 +226,6 @@
     "custom_hero_hMk6tW",
     "trust_badges_8dNE6C",
     "featured_collection",
-    "category_showcase_87XBDD",
     "benefits_banner_UtVG3J",
     "community_reels_4yb3L3",
     "premium_testimonials_DDywhW"

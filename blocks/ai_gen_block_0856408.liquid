@@ -1,0 +1,1244 @@
+{% doc %}
+  @prompt
+    Create a premium fully responsive Shopify “Our Story / Brand Story” section for a modern supplement ecommerce website.
+    
+    --------------------------------------------------
+    SECTION GOAL
+    --------------------------------------------------
+    
+    Build a high-end split layout section that communicates brand trust, quality, and scientific credibility.
+    
+    The section should have:
+    - Left content area
+    - Right image area
+    - Floating overlay trust card on image
+    - Premium supplement/fashion ecommerce feel
+    
+    The design should feel:
+    - Clean
+    - Luxury
+    - Modern
+    - Scientific
+    - Conversion-focused
+    
+    --------------------------------------------------
+    DESKTOP LAYOUT
+    --------------------------------------------------
+    
+    Desktop:
+    - Two-column grid layout
+    - Left side text content
+    - Right side large image
+    - Floating glassmorphism trust card overlay on image
+    - Full height balanced layout
+    - Spacious padding and alignment
+    
+    Mobile:
+    - Stack vertically
+    - Text first
+    - Image second
+    - Overlay card repositioned properly
+    - No horizontal scroll
+    - Optimized typography and spacing
+    
+    --------------------------------------------------
+    LEFT CONTENT AREA
+    --------------------------------------------------
+    
+    Add dynamic editable content:
+    
+    1. Small subtitle label
+    Example:
+    OUR STORY
+    
+    2. Large heading
+    Example:
+    Built on Passion.
+    Backed by Science.
+    
+    3. Description paragraphs
+    Support:
+    - Multiple paragraphs
+    - Rich text
+    - Line breaks
+    
+    4. CTA button
+    Examples:
+    - Our Journey
+    - Learn More
+    
+    Merchant must be able to:
+    - Change subtitle
+    - Change heading
+    - Change body text
+    - Change button text
+    - Change button URL
+    - Enable/disable button
+    
+    --------------------------------------------------
+    RIGHT IMAGE AREA
+    --------------------------------------------------
+    
+    IMPORTANT:
+    Add full image picker support.
+    
+    Merchant should be able to:
+    - Upload/change image
+    - Change image focal point
+    - Adjust image height
+    - Add overlay
+    - Control image opacity
+    - Add dark gradient overlay
+    
+    Image should:
+    - Cover container perfectly
+    - Maintain aspect ratio
+    - Use object-cover
+    - Have rounded corners optionally
+    - Be fully responsive
+    
+    Use Shopify image_picker setting.
+    
+    --------------------------------------------------
+    FLOATING TRUST CARD
+    --------------------------------------------------
+    
+    Add a floating overlay card on top of image.
+    
+    Card style:
+    - Dark translucent glassmorphism background
+    - Backdrop blur
+    - Rounded corners
+    - Soft shadow
+    - Premium modern look
+    
+    Card should contain dynamic feature items.
+    
+    Each feature item includes:
+    - Custom icon picker
+    - Feature text
+    
+    Example items:
+    - Carefully Selected Ingredients
+    - Advanced Manufacturing
+    - Tested for Purity and Potency
+    
+    IMPORTANT:
+    Merchant must be able to:
+    - Add/remove items
+    - Reorder items
+    - Change icon
+    - Change text
+    - Change icon color
+    - Change card background opacity
+    
+    Use Shopify blocks for feature items.
+    
+    --------------------------------------------------
+    DESIGN STYLE
+    --------------------------------------------------
+    
+    Color palette:
+    - Primary Blue: #0B2C6B
+    - Accent Orange: #FF6A00
+    - Light Background: #F7F9FC
+    
+    Typography:
+    - Large bold headings
+    - Clean sans-serif body text
+    - Strong visual hierarchy
+    
+    UI Style:
+    - Rounded corners
+    - Soft shadows
+    - Premium spacing
+    - Minimal elegant aesthetic
+    - Subtle hover effects
+    
+    --------------------------------------------------
+    RESPONSIVE REQUIREMENTS
+    --------------------------------------------------
+    
+    The section MUST:
+    - Be fully responsive
+    - Have no horizontal overflow
+    - Stack properly on mobile
+    - Resize text smoothly
+    - Maintain image quality
+    - Optimize overlay card positioning on small screens
+    
+    Mobile requirements:
+    - Reduce padding
+    - Smaller heading size
+    - Overlay card centered
+    - CTA full-width optional
+    
+    --------------------------------------------------
+    SHOPIFY REQUIREMENTS
+    --------------------------------------------------
+    
+    Build using:
+    - Shopify Liquid
+    - CSS
+    - Minimal JavaScript
+    
+    Requirements:
+    - Dawn theme compatible
+    - Theme editor customizable
+    - Semantic HTML
+    - Performance optimized
+    - Reusable section architecture
+    - Proper schema settings
+    
+    --------------------------------------------------
+    CUSTOMIZATION OPTIONS
+    --------------------------------------------------
+    
+    Merchant should be able to customize:
+    - Section padding
+    - Background color
+    - Text colors
+    - Overlay opacity
+    - Border radius
+    - Card width
+    - Card position
+    - Button style
+    - Mobile spacing
+    - Content alignment
+    
+    --------------------------------------------------
+    ANIMATIONS
+    --------------------------------------------------
+    
+    Add subtle premium animations:
+    - Fade-in on scroll
+    - Smooth hover effects
+    - Slight image zoom on hover
+    - Button hover transition
+    
+    Animations should be lightweight and modern.
+    
+    --------------------------------------------------
+    FINAL GOAL
+    --------------------------------------------------
+    
+    The final section should look like a premium international supplement brand homepage section similar to luxury fitness ecommerce websites with strong storytelling and trust-building visuals.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-brand-story-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.section_background }};
+    padding: {{ block.settings.section_padding_top }}px 0 {{ block.settings.section_padding_bottom }}px;
+  }
+
+  .ai-brand-story-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-brand-story-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ block.settings.grid_gap }}px;
+    align-items: center;
+    min-height: {{ block.settings.min_height }}px;
+  }
+
+  .ai-brand-story-content-{{ ai_gen_id }} {
+    padding: {{ block.settings.content_padding }}px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .ai-brand-story-{{ ai_gen_id }}.ai-visible .ai-brand-story-content-{{ ai_gen_id }} {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ai-brand-story-subtitle-{{ ai_gen_id }} {
+    font-size: {{ block.settings.subtitle_size }}px;
+    color: {{ block.settings.subtitle_color }};
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .ai-brand-story-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .ai-brand-story-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size }}px;
+    color: {{ block.settings.description_color }};
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .ai-brand-story-description-{{ ai_gen_id }} p {
+    margin-bottom: 16px;
+  }
+
+  .ai-brand-story-description-{{ ai_gen_id }} p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ai-brand-story-button-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: {{ block.settings.button_padding_vertical }}px {{ block.settings.button_padding_horizontal }}px;
+    background-color: {{ block.settings.button_background }};
+    color: {{ block.settings.button_text_color }};
+    font-size: {{ block.settings.button_font_size }}px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .ai-brand-story-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_background }};
+    color: {{ block.settings.button_hover_text_color }};
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .ai-brand-story-image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    height: 100%;
+    min-height: {{ block.settings.image_min_height }}px;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+  }
+
+  .ai-brand-story-{{ ai_gen_id }}.ai-visible .ai-brand-story-image-wrapper-{{ ai_gen_id }} {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .ai-brand-story-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: {{ block.settings.image_focal_point }};
+    transition: transform 0.6s ease;
+  }
+
+  .ai-brand-story-image-wrapper-{{ ai_gen_id }}:hover .ai-brand-story-image-{{ ai_gen_id }} {
+    transform: scale(1.05);
+  }
+
+  .ai-brand-story-image-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, {{ block.settings.image_overlay_opacity }}) 0%, rgba(0, 0, 0, 0) 100%);
+    pointer-events: none;
+  }
+
+  .ai-brand-story-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-brand-story-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  .ai-brand-story-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-brand-story-trust-card-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: {{ block.settings.card_position_bottom }}px;
+    left: {{ block.settings.card_position_left }}px;
+    background: rgba({{ block.settings.card_background_rgb }}, {{ block.settings.card_background_opacity }});
+    backdrop-filter: blur({{ block.settings.card_blur }}px);
+    -webkit-backdrop-filter: blur({{ block.settings.card_blur }}px);
+    border-radius: {{ block.settings.card_border_radius }}px;
+    padding: {{ block.settings.card_padding }}px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    max-width: {{ block.settings.card_max_width }}px;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+  }
+
+  .ai-brand-story-{{ ai_gen_id }}.ai-visible .ai-brand-story-trust-card-{{ ai_gen_id }} {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ai-brand-story-trust-item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .ai-brand-story-trust-item-{{ ai_gen_id }}:last-child {
+    margin-bottom: 0;
+  }
+
+  .ai-brand-story-trust-icon-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: {{ block.settings.icon_size }}px;
+  }
+
+  .ai-brand-story-trust-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.card_text_size }}px;
+    color: {{ block.settings.card_text_color }};
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-brand-story-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .ai-brand-story-content-{{ ai_gen_id }} {
+      padding: {{ block.settings.mobile_content_padding }}px;
+    }
+
+    .ai-brand-story-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_heading_size }}px;
+    }
+
+    .ai-brand-story-description-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_description_size }}px;
+    }
+
+    .ai-brand-story-image-wrapper-{{ ai_gen_id }} {
+      min-height: {{ block.settings.mobile_image_height }}px;
+    }
+
+    .ai-brand-story-trust-card-{{ ai_gen_id }} {
+      position: relative;
+      bottom: auto;
+      left: auto;
+      margin-top: -60px;
+      margin-left: 20px;
+      margin-right: 20px;
+      max-width: 100%;
+    }
+
+    .ai-brand-story-button-{{ ai_gen_id }} {
+      width: {{ block.settings.mobile_button_width }}%;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-brand-story-{{ ai_gen_id }} {
+      padding: {{ block.settings.mobile_section_padding }}px 0;
+    }
+
+    .ai-brand-story-subtitle-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_subtitle_size }}px;
+    }
+
+    .ai-brand-story-trust-card-{{ ai_gen_id }} {
+      padding: {{ block.settings.mobile_card_padding }}px;
+    }
+
+    .ai-brand-story-trust-icon-{{ ai_gen_id }} {
+      width: {{ block.settings.mobile_icon_size }}px;
+      height: {{ block.settings.mobile_icon_size }}px;
+      font-size: {{ block.settings.mobile_icon_size }}px;
+    }
+
+    .ai-brand-story-trust-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_card_text_size }}px;
+    }
+  }
+{% endstyle %}
+
+<brand-story-{{ ai_gen_id }} class="ai-brand-story-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-brand-story-container-{{ ai_gen_id }}">
+    <div class="ai-brand-story-grid-{{ ai_gen_id }}">
+      <div class="ai-brand-story-content-{{ ai_gen_id }}">
+        {% if block.settings.subtitle != blank %}
+          <span class="ai-brand-story-subtitle-{{ ai_gen_id }}">{{ block.settings.subtitle }}</span>
+        {% endif %}
+
+        {% if block.settings.heading != blank %}
+          <h2 class="ai-brand-story-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+        {% endif %}
+
+        {% if block.settings.description != blank %}
+          <div class="ai-brand-story-description-{{ ai_gen_id }}">
+            {{ block.settings.description }}
+          </div>
+        {% endif %}
+
+        {% if block.settings.show_button and block.settings.button_text != blank %}
+          <a href="{{ block.settings.button_link }}" class="ai-brand-story-button-{{ ai_gen_id }}">
+            {{ block.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+
+      <div class="ai-brand-story-image-wrapper-{{ ai_gen_id }}">
+        {% if block.settings.image %}
+          <img
+            src="{{ block.settings.image | image_url: width: 1200 }}"
+            alt="{{ block.settings.image.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image.width }}"
+            height="{{ block.settings.image.height }}"
+            class="ai-brand-story-image-{{ ai_gen_id }}"
+          >
+        {% else %}
+          <div class="ai-brand-story-image-placeholder-{{ ai_gen_id }}">
+            {{ 'hero-apparel-1' | placeholder_svg_tag }}
+            <div class="ai-brand-story-empty-state-{{ ai_gen_id }}">
+              Add your brand story image
+            </div>
+          </div>
+        {% endif %}
+
+        {% if block.settings.show_image_overlay %}
+          <div class="ai-brand-story-image-overlay-{{ ai_gen_id }}"></div>
+        {% endif %}
+
+        {% if block.settings.show_trust_card %}
+          <div class="ai-brand-story-trust-card-{{ ai_gen_id }}">
+            {% if block.settings.feature_1_text != blank %}
+              <div class="ai-brand-story-trust-item-{{ ai_gen_id }}">
+                <div class="ai-brand-story-trust-icon-{{ ai_gen_id }}" style="color: {{ block.settings.feature_1_icon_color }};">
+                  {{ block.settings.feature_1_icon }}
+                </div>
+                <div class="ai-brand-story-trust-text-{{ ai_gen_id }}">
+                  {{ block.settings.feature_1_text }}
+                </div>
+              </div>
+            {% endif %}
+
+            {% if block.settings.feature_2_text != blank %}
+              <div class="ai-brand-story-trust-item-{{ ai_gen_id }}">
+                <div class="ai-brand-story-trust-icon-{{ ai_gen_id }}" style="color: {{ block.settings.feature_2_icon_color }};">
+                  {{ block.settings.feature_2_icon }}
+                </div>
+                <div class="ai-brand-story-trust-text-{{ ai_gen_id }}">
+                  {{ block.settings.feature_2_text }}
+                </div>
+              </div>
+            {% endif %}
+
+            {% if block.settings.feature_3_text != blank %}
+              <div class="ai-brand-story-trust-item-{{ ai_gen_id }}">
+                <div class="ai-brand-story-trust-icon-{{ ai_gen_id }}" style="color: {{ block.settings.feature_3_icon_color }};">
+                  {{ block.settings.feature_3_icon }}
+                </div>
+                <div class="ai-brand-story-trust-text-{{ ai_gen_id }}">
+                  {{ block.settings.feature_3_text }}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</brand-story-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class BrandStory{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.observer = null;
+      }
+
+      connectedCallback() {
+        this.setupIntersectionObserver();
+      }
+
+      setupIntersectionObserver() {
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        this.observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              this.classList.add('ai-visible');
+              this.observer.unobserve(this);
+            }
+          });
+        }, options);
+
+        this.observer.observe(this);
+      }
+
+      disconnectedCallback() {
+        if (this.observer) {
+          this.observer.disconnect();
+        }
+      }
+    }
+
+    customElements.define('brand-story-{{ ai_gen_id }}', BrandStory{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Brand story",
+  "tag": null,
+  "class": "ai-brand-story-block",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "OUR STORY"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Built on Passion. Backed by Science."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>We believe that true wellness comes from the perfect blend of nature and science. Every product we create is carefully formulated with premium ingredients, rigorously tested, and designed to help you achieve your health goals.</p><p>Our commitment to quality means we never compromise on purity, potency, or performance. From sourcing to manufacturing, every step is guided by our passion for excellence and backed by scientific research.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Our Journey"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_focal_point",
+      "label": "Image focal point",
+      "options": [
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "image_min_height",
+      "label": "Image minimum height",
+      "min": 300,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image_overlay",
+      "label": "Show dark overlay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.2
+    },
+    {
+      "type": "header",
+      "content": "Trust card"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_card",
+      "label": "Show trust card",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "card_background_rgb",
+      "label": "Card background RGB",
+      "default": "11, 44, 107",
+      "info": "Enter RGB values separated by commas (e.g., 11, 44, 107)"
+    },
+    {
+      "type": "range",
+      "id": "card_background_opacity",
+      "label": "Card background opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.9
+    },
+    {
+      "type": "range",
+      "id": "card_blur",
+      "label": "Card blur",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Card padding",
+      "min": 16,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "card_max_width",
+      "label": "Card max width",
+      "min": 200,
+      "max": 500,
+      "step": 20,
+      "unit": "px",
+      "default": 360
+    },
+    {
+      "type": "range",
+      "id": "card_position_bottom",
+      "label": "Card position from bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "card_position_left",
+      "label": "Card position from left",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "card_text_size",
+      "label": "Card text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Feature 1"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_icon",
+      "label": "Icon",
+      "default": "✓",
+      "info": "Enter an emoji or symbol"
+    },
+    {
+      "type": "color",
+      "id": "feature_1_icon_color",
+      "label": "Icon color",
+      "default": "#FF6A00"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_text",
+      "label": "Text",
+      "default": "Carefully Selected Ingredients"
+    },
+    {
+      "type": "header",
+      "content": "Feature 2"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_icon",
+      "label": "Icon",
+      "default": "✓",
+      "info": "Enter an emoji or symbol"
+    },
+    {
+      "type": "color",
+      "id": "feature_2_icon_color",
+      "label": "Icon color",
+      "default": "#FF6A00"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_text",
+      "label": "Text",
+      "default": "Advanced Manufacturing"
+    },
+    {
+      "type": "header",
+      "content": "Feature 3"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_icon",
+      "label": "Icon",
+      "default": "✓",
+      "info": "Enter an emoji or symbol"
+    },
+    {
+      "type": "color",
+      "id": "feature_3_icon_color",
+      "label": "Icon color",
+      "default": "#FF6A00"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_text",
+      "label": "Text",
+      "default": "Tested for Purity and Potency"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Section background",
+      "default": "#F7F9FC"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color",
+      "default": "#FF6A00"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#0B2C6B"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#4A5568"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#0B2C6B"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background",
+      "label": "Button hover background",
+      "default": "#FF6A00"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button hover text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Subtitle size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 24,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Button font size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Container width",
+      "min": 1000,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "default": 1400
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Grid gap",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Minimum height",
+      "min": 400,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "label": "Content padding",
+      "min": 0,
+      "max": 80,
+      "step": 8,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section padding top",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "label": "Button vertical padding",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "label": "Button horizontal padding",
+      "min": 16,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "label": "Button border radius",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Mobile settings"
+    },
+    {
+      "type": "range",
+      "id": "mobile_section_padding",
+      "label": "Mobile section padding",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mobile_content_padding",
+      "label": "Mobile content padding",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_subtitle_size",
+      "label": "Mobile subtitle size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 24,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "mobile_description_size",
+      "label": "Mobile description size",
+      "min": 14,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "label": "Mobile image height",
+      "min": 250,
+      "max": 500,
+      "step": 25,
+      "unit": "px",
+      "default": 400
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_padding",
+      "label": "Mobile card padding",
+      "min": 16,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_size",
+      "label": "Mobile icon size",
+      "min": 16,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_text_size",
+      "label": "Mobile card text size",
+      "min": 12,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_width",
+      "label": "Mobile button width",
+      "min": 50,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand story"
+    }
+  ]
+}
+{% endschema %}
