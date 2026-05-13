@@ -1,0 +1,717 @@
+{% doc %}
+  @prompt
+    Create a premium fully responsive Shopify Mission & Vision section for a supplement brand website.
+    
+    Design:
+    - Clean light background
+    - 2-column layout on desktop
+    - Stack vertically on mobile
+    - Minimal modern premium UI
+    - Circular icon containers
+    - Vertical divider between columns
+    - Spacious padding and clean typography
+    
+    Each block should include:
+    - Selectable/uploadable icon
+    - Small heading
+    - Description text
+    
+    Example:
+    OUR MISSION
+    OUR VISION
+    
+    Shopify Customization:
+    - Add/remove/reorder blocks
+    - Change icons
+    - Change heading
+    - Change description
+    - Change colors
+    - Change divider visibility
+    - Change spacing and alignment
+    
+    Technical:
+    - Shopify Liquid
+    - Dawn theme compatible
+    - Fully responsive
+    - No horizontal scroll
+    - Lightweight and optimized
+    - Reusable Shopify section, should have two coloum, exapmle: our mission on lefts and our vision on right , the descriptions should be able to set align example: left, right, center
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-mission-vision-section-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.padding_top }}px {{ block.settings.padding_horizontal }}px {{ block.settings.padding_bottom }}px;
+  }
+
+  .ai-mission-vision-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-mission-vision-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: {{ block.settings.gap_mobile }}px;
+    position: relative;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-mission-vision-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr 1fr;
+      gap: {{ block.settings.gap_desktop }}px;
+    }
+
+    {% if block.settings.show_divider %}
+      .ai-mission-vision-grid-{{ ai_gen_id }}::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: {{ block.settings.divider_width }}px;
+        height: 100%;
+        background-color: {{ block.settings.divider_color }};
+        opacity: {{ block.settings.divider_opacity | divided_by: 100.0 }};
+      }
+    {% endif %}
+  }
+
+  .ai-mission-vision-item-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    align-items: {{ block.settings.alignment }};
+    padding: {{ block.settings.item_padding }}px;
+  }
+
+  .ai-mission-vision-icon-wrapper-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    border-radius: 50%;
+    background-color: {{ block.settings.icon_background }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: {{ block.settings.icon_spacing }}px;
+    flex-shrink: 0;
+  }
+
+  .ai-mission-vision-icon-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size | times: 0.5 }}px;
+    height: {{ block.settings.icon_size | times: 0.5 }}px;
+    object-fit: contain;
+  }
+
+  .ai-mission-vision-icon-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-mission-vision-icon-placeholder-{{ ai_gen_id }} svg {
+    width: {{ block.settings.icon_size | times: 0.5 }}px;
+    height: {{ block.settings.icon_size | times: 0.5 }}px;
+    color: {{ block.settings.icon_color }};
+  }
+
+  .ai-mission-vision-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    font-weight: {{ block.settings.heading_weight }};
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    letter-spacing: {{ block.settings.heading_letter_spacing }}px;
+    text-transform: {{ block.settings.heading_transform }};
+    text-align: {{ block.settings.heading_alignment }};
+    width: 100%;
+  }
+
+  .ai-mission-vision-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size }}px;
+    line-height: {{ block.settings.description_line_height }};
+    color: {{ block.settings.description_color }};
+    margin: 0;
+    max-width: {{ block.settings.description_max_width }}px;
+    text-align: {{ block.settings.description_alignment }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-mission-vision-section-{{ ai_gen_id }} {
+      padding: {{ block.settings.padding_top_mobile }}px {{ block.settings.padding_horizontal_mobile }}px {{ block.settings.padding_bottom_mobile }}px;
+    }
+
+    .ai-mission-vision-icon-wrapper-{{ ai_gen_id }} {
+      width: {{ block.settings.icon_size_mobile }}px;
+      height: {{ block.settings.icon_size_mobile }}px;
+    }
+
+    .ai-mission-vision-icon-{{ ai_gen_id }} {
+      width: {{ block.settings.icon_size_mobile | times: 0.5 }}px;
+      height: {{ block.settings.icon_size_mobile | times: 0.5 }}px;
+    }
+
+    .ai-mission-vision-icon-placeholder-{{ ai_gen_id }} svg {
+      width: {{ block.settings.icon_size_mobile | times: 0.5 }}px;
+      height: {{ block.settings.icon_size_mobile | times: 0.5 }}px;
+    }
+
+    .ai-mission-vision-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size_mobile }}px;
+    }
+
+    .ai-mission-vision-description-{{ ai_gen_id }} {
+      font-size: {{ block.settings.description_size_mobile }}px;
+    }
+  }
+{% endstyle %}
+
+<mission-vision-section-{{ ai_gen_id }} class="ai-mission-vision-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-mission-vision-container-{{ ai_gen_id }}">
+    <div class="ai-mission-vision-grid-{{ ai_gen_id }}">
+      <div class="ai-mission-vision-item-{{ ai_gen_id }}">
+        <div class="ai-mission-vision-icon-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.mission_icon %}
+            <img
+              src="{{ block.settings.mission_icon | image_url: width: 200 }}"
+              alt="{{ block.settings.mission_heading | escape }}"
+              class="ai-mission-vision-icon-{{ ai_gen_id }}"
+              loading="lazy"
+              width="200"
+              height="200"
+            >
+          {% else %}
+            <div class="ai-mission-vision-icon-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if block.settings.mission_heading != blank %}
+          <h3 class="ai-mission-vision-heading-{{ ai_gen_id }}">
+            {{ block.settings.mission_heading }}
+          </h3>
+        {% endif %}
+
+        {% if block.settings.mission_description != blank %}
+          <div class="ai-mission-vision-description-{{ ai_gen_id }}">
+            {{ block.settings.mission_description }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="ai-mission-vision-item-{{ ai_gen_id }}">
+        <div class="ai-mission-vision-icon-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.vision_icon %}
+            <img
+              src="{{ block.settings.vision_icon | image_url: width: 200 }}"
+              alt="{{ block.settings.vision_heading | escape }}"
+              class="ai-mission-vision-icon-{{ ai_gen_id }}"
+              loading="lazy"
+              width="200"
+              height="200"
+            >
+          {% else %}
+            <div class="ai-mission-vision-icon-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if block.settings.vision_heading != blank %}
+          <h3 class="ai-mission-vision-heading-{{ ai_gen_id }}">
+            {{ block.settings.vision_heading }}
+          </h3>
+        {% endif %}
+
+        {% if block.settings.vision_description != blank %}
+          <div class="ai-mission-vision-description-{{ ai_gen_id }}">
+            {{ block.settings.vision_description }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</mission-vision-section-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class MissionVisionSection{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.style.display = 'block';
+      }
+    }
+
+    customElements.define('mission-vision-section-{{ ai_gen_id }}', MissionVisionSection{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Mission & Vision",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Mission (Left column)"
+    },
+    {
+      "type": "image_picker",
+      "id": "mission_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "mission_heading",
+      "label": "Heading",
+      "default": "Our Mission"
+    },
+    {
+      "type": "richtext",
+      "id": "mission_description",
+      "label": "Description",
+      "default": "<p>To empower individuals to achieve their fitness goals through premium, science-backed supplements that fuel performance and enhance well-being.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Vision (Right column)"
+    },
+    {
+      "type": "image_picker",
+      "id": "vision_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "vision_heading",
+      "label": "Heading",
+      "default": "Our Vision"
+    },
+    {
+      "type": "richtext",
+      "id": "vision_description",
+      "label": "Description",
+      "default": "<p>To become the most trusted supplement brand globally, inspiring healthier lifestyles and transforming lives through innovation and quality.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 600,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "label": "Container width",
+      "default": 1200
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Icon alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "description_alignment",
+      "label": "Description alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "gap_desktop",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Gap between columns (desktop)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "min": 20,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Gap between items (mobile)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "item_padding",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Item padding",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Divider"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "Show divider",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "divider_width",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "label": "Width",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Color",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "range",
+      "id": "divider_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacity",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Icon style"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 40,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Size (desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "icon_size_mobile",
+      "min": 40,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Size (mobile)",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "icon_background",
+      "label": "Background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "icon_spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Spacing below icon",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Heading style"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 12,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Size (desktop)",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Size (mobile)",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "select",
+      "id": "heading_transform",
+      "label": "Text transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "range",
+      "id": "heading_letter_spacing",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Letter spacing",
+      "default": 1.5
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color",
+      "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "min": 5,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Spacing below heading",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Description style"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Size (desktop)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "description_size_mobile",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Size (mobile)",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "description_line_height",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "label": "Line height",
+      "default": 1.6
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "description_max_width",
+      "min": 200,
+      "max": 600,
+      "step": 50,
+      "unit": "px",
+      "label": "Max width",
+      "default": 400
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Top padding (desktop)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom padding (desktop)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Horizontal padding (desktop)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Top padding (mobile)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom padding (mobile)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal_mobile",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Horizontal padding (mobile)",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mission & Vision"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,587 @@
+{% doc %}
+  @prompt
+    Create a premium fully responsive Shopify stats/counter section for a supplement brand website.
+    
+    Design:
+    - Dark blue gradient background
+    - 4-column layout on desktop
+    - Stack/grid on mobile
+    - Clean modern premium UI
+    - White icons and text
+    - Vertical divider lines between items
+    
+    Each stat block should include:
+    - Selectable/uploadable icon
+    - Animated count-up number
+    - Small label text
+    
+    Example:
+    50K+ Happy Customers
+    25+ Premium Products
+    100% Quality Assured
+    4.8/5 Customer Rating
+    
+    Counter Requirements:
+    - Animate from 0 when section enters viewport
+    - Smooth count-up effect
+    - Support +, %, decimals, ratings
+    - Run once only
+    
+    Shopify Customization:
+    - Add/remove/reorder stat blocks
+    - Change icons
+    - Change numbers
+    - Change labels
+    - Change colors
+    - Change animation speed
+    - Enable/disable dividers
+    
+    Technical:
+    - Shopify Liquid
+    - Dawn theme compatible
+    - Fully responsive
+    - No horizontal scroll
+    - Lightweight JS
+    - Optimized performance
+    - Reusable Shopify section
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-stats-counter-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding: 60px 20px;
+    background: {{ block.settings.gradient_start }};
+    background: linear-gradient(135deg, {{ block.settings.gradient_start }} 0%, {{ block.settings.gradient_end }} 100%);
+  }
+
+  .ai-stats-counter-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-stats-counter-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    align-items: center;
+  }
+
+  .ai-stats-counter-item-{{ ai_gen_id }} {
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+  }
+
+  {% if block.settings.show_dividers %}
+    .ai-stats-counter-item-{{ ai_gen_id }}:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 60%;
+      background-color: {{ block.settings.divider_color }};
+      opacity: {{ block.settings.divider_opacity | divided_by: 100.0 }};
+    }
+  {% endif %}
+
+  .ai-stats-counter-icon-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-stats-counter-icon-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .ai-stats-counter-icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    fill: {{ block.settings.icon_color }};
+  }
+
+  .ai-stats-counter-number-{{ ai_gen_id }} {
+    font-size: {{ block.settings.number_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.number_color }};
+    line-height: 1.2;
+    margin-bottom: 10px;
+    font-family: {{ block.settings.number_font.family }}, {{ block.settings.number_font.fallback_families }};
+    font-weight: {{ block.settings.number_font.weight }};
+  }
+
+  .ai-stats-counter-label-{{ ai_gen_id }} {
+    font-size: {{ block.settings.label_size }}px;
+    color: {{ block.settings.label_color }};
+    line-height: 1.4;
+    opacity: 0.9;
+    font-family: {{ block.settings.label_font.family }}, {{ block.settings.label_font.fallback_families }};
+    font-weight: {{ block.settings.label_font.weight }};
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-stats-counter-grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 0;
+    }
+
+    .ai-stats-counter-item-{{ ai_gen_id }}:nth-child(2n)::after {
+      display: none;
+    }
+
+    .ai-stats-counter-item-{{ ai_gen_id }}:nth-child(odd)::after {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-stats-counter-{{ ai_gen_id }} {
+      padding: 40px 15px;
+    }
+
+    .ai-stats-counter-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 30px 0;
+    }
+
+    .ai-stats-counter-item-{{ ai_gen_id }}::after {
+      display: none !important;
+    }
+
+    .ai-stats-counter-number-{{ ai_gen_id }} {
+      font-size: {{ block.settings.number_size | times: 0.8 }}px;
+    }
+
+    .ai-stats-counter-label-{{ ai_gen_id }} {
+      font-size: {{ block.settings.label_size | times: 0.9 }}px;
+    }
+
+    .ai-stats-counter-icon-{{ ai_gen_id }} {
+      width: {{ block.settings.icon_size | times: 0.8 }}px;
+      height: {{ block.settings.icon_size | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<stats-counter-{{ ai_gen_id }} class="ai-stats-counter-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-stats-counter-container-{{ ai_gen_id }}">
+    <div class="ai-stats-counter-grid-{{ ai_gen_id }}">
+      {% for i in (1..4) %}
+        {% liquid
+          assign icon_key = 'stat_' | append: i | append: '_icon'
+          assign number_key = 'stat_' | append: i | append: '_number'
+          assign suffix_key = 'stat_' | append: i | append: '_suffix'
+          assign label_key = 'stat_' | append: i | append: '_label'
+
+          assign stat_icon = block.settings[icon_key]
+          assign stat_number = block.settings[number_key]
+          assign stat_suffix = block.settings[suffix_key]
+          assign stat_label = block.settings[label_key]
+        %}
+
+        <div class="ai-stats-counter-item-{{ ai_gen_id }}" data-stat-item>
+          {% if stat_icon != blank %}
+            <div class="ai-stats-counter-icon-{{ ai_gen_id }}">
+              <img
+                src="{{ stat_icon | image_url: width: 200 }}"
+                alt="{{ stat_label | escape }}"
+                loading="lazy"
+                width="200"
+                height="200"
+              >
+            </div>
+          {% else %}
+            <div class="ai-stats-counter-icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+          {% endif %}
+
+          <div
+            class="ai-stats-counter-number-{{ ai_gen_id }}"
+            data-target="{{ stat_number }}"
+            data-suffix="{{ stat_suffix }}"
+            data-duration="{{ block.settings.animation_duration }}"
+          >
+            0
+          </div>
+
+          <div class="ai-stats-counter-label-{{ ai_gen_id }}">
+            {{ stat_label }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</stats-counter-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class StatsCounter{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.animated = false;
+      }
+
+      connectedCallback() {
+        this.setupIntersectionObserver();
+      }
+
+      setupIntersectionObserver() {
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.3
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !this.animated) {
+              this.animated = true;
+              this.animateCounters();
+              observer.unobserve(entry.target);
+            }
+          });
+        }, options);
+
+        observer.observe(this);
+      }
+
+      animateCounters() {
+        const counters = this.querySelectorAll('[data-target]');
+
+        counters.forEach(counter => {
+          const target = counter.getAttribute('data-target');
+          const suffix = counter.getAttribute('data-suffix') || '';
+          const duration = parseInt(counter.getAttribute('data-duration')) || 2000;
+
+          const hasDecimal = target.includes('.');
+          const targetNumber = parseFloat(target);
+
+          if (isNaN(targetNumber)) {
+            counter.textContent = target + suffix;
+            return;
+          }
+
+          const startTime = performance.now();
+          const decimalPlaces = hasDecimal ? target.split('.')[1].length : 0;
+
+          const animate = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const current = targetNumber * easeOutQuart;
+
+            if (hasDecimal) {
+              counter.textContent = current.toFixed(decimalPlaces) + suffix;
+            } else {
+              counter.textContent = Math.floor(current) + suffix;
+            }
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              counter.textContent = target + suffix;
+            }
+          };
+
+          requestAnimationFrame(animate);
+        });
+      }
+    }
+
+    customElements.define('stats-counter-{{ ai_gen_id }}', StatsCounter{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Stats counter",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 800,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "label": "Container width",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "gradient_start",
+      "label": "Gradient start color",
+      "default": "#1a237e"
+    },
+    {
+      "type": "color",
+      "id": "gradient_end",
+      "label": "Gradient end color",
+      "default": "#0d47a1"
+    },
+    {
+      "type": "header",
+      "content": "Icons"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 30,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 50
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Numbers"
+    },
+    {
+      "type": "range",
+      "id": "number_size",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Number size",
+      "default": 48
+    },
+    {
+      "type": "color",
+      "id": "number_color",
+      "label": "Number color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "font_picker",
+      "id": "number_font",
+      "label": "Number font",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "header",
+      "content": "Labels"
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Label size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "font_picker",
+      "id": "label_font",
+      "label": "Label font",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "header",
+      "content": "Dividers"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dividers",
+      "label": "Show dividers",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "divider_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Divider opacity",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "range",
+      "id": "animation_duration",
+      "min": 1000,
+      "max": 4000,
+      "step": 500,
+      "unit": "ms",
+      "label": "Animation duration",
+      "default": 2000
+    },
+    {
+      "type": "header",
+      "content": "Stat 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "stat_1_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_number",
+      "label": "Number",
+      "default": "50"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_suffix",
+      "label": "Suffix",
+      "default": "K+",
+      "info": "Add +, %, or other text after the number"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "label": "Label",
+      "default": "Happy Customers"
+    },
+    {
+      "type": "header",
+      "content": "Stat 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "stat_2_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_number",
+      "label": "Number",
+      "default": "25"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_suffix",
+      "label": "Suffix",
+      "default": "+",
+      "info": "Add +, %, or other text after the number"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "label": "Label",
+      "default": "Premium Products"
+    },
+    {
+      "type": "header",
+      "content": "Stat 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "stat_3_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_number",
+      "label": "Number",
+      "default": "100"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_suffix",
+      "label": "Suffix",
+      "default": "%",
+      "info": "Add +, %, or other text after the number"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_label",
+      "label": "Label",
+      "default": "Quality Assured"
+    },
+    {
+      "type": "header",
+      "content": "Stat 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "stat_4_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "stat_4_number",
+      "label": "Number",
+      "default": "4.8"
+    },
+    {
+      "type": "text",
+      "id": "stat_4_suffix",
+      "label": "Suffix",
+      "default": "/5",
+      "info": "Add +, %, or other text after the number"
+    },
+    {
+      "type": "text",
+      "id": "stat_4_label",
+      "label": "Label",
+      "default": "Customer Rating"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stats counter"
+    }
+  ]
+}
+{% endschema %}

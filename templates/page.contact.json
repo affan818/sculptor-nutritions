@@ -11,24 +11,130 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
       }
     },
-    "form": {
-      "type": "contact-form",
+    "custom_hero_Adqf4W": {
+      "type": "custom-hero",
+      "name": "Custom Hero",
       "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "subheading": "",
+        "heading": "Contact",
+        "description": "<p>Scientifically formulated supplements designed to help you build muscle, boost energy, and achieve your fitness goals.</p>",
+        "primary_btn_label": "",
+        "primary_btn_link": "",
+        "secondary_btn_label": "",
+        "secondary_btn_link": ""
       }
+    },
+    "1778669753ff598ce6": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b96c7a3_etKEf7": {
+          "type": "ai_gen_block_b96c7a3",
+          "settings": {
+            "container_width": 1200,
+            "section_padding_top": 60,
+            "section_padding_bottom": 60,
+            "grid_gap": 40,
+            "mobile_gap": 32,
+            "mobile_padding": 24,
+            "section_background": "#f9f9f9",
+            "form_heading": "Send Us a Message",
+            "heading_size": 32,
+            "heading_spacing": 24,
+            "heading_color": "#0b2c6b",
+            "form_background": "#ffffff",
+            "form_padding": 40,
+            "show_name_field": true,
+            "name_label": "Name",
+            "name_placeholder": "Your name",
+            "name_required": true,
+            "email_label": "Email",
+            "email_placeholder": "your@email.com",
+            "show_subject_field": true,
+            "subject_label": "Subject",
+            "subject_placeholder": "How can we help?",
+            "subject_required": false,
+            "message_label": "Message",
+            "message_placeholder": "Tell us more about your inquiry...",
+            "field_spacing": 20,
+            "textarea_height": 140,
+            "label_size": 14,
+            "label_color": "#0b2c6b",
+            "input_text_size": 15,
+            "input_text_color": "#0B2C6B",
+            "input_background": "#ffffff",
+            "placeholder_color": "#999999",
+            "input_padding": 14,
+            "input_border_width": 1,
+            "input_border_color": "#e0e0e0",
+            "input_focus_border": "#121212",
+            "input_border_radius": 8,
+            "button_text": "Send Message",
+            "button_loading_text": "Sending...",
+            "button_text_size": 16,
+            "button_background": "#0b2c6b",
+            "button_hover_background": "#334fb4",
+            "button_text_color": "#ffffff",
+            "button_padding": 16,
+            "button_border_radius": 8,
+            "trust_note": "<p>Your information is safe and secure with us</p>",
+            "trust_note_size": 13,
+            "trust_note_color": "#666666",
+            "success_message": "<p>Thank you for contacting us! We'll get back to you within 24 hours.</p>",
+            "show_info_1": true,
+            "info_1_icon_type": "support",
+            "info_1_title": "Customer Support",
+            "info_1_content": "<p>Available Monday - Friday<br/>9:00 AM - 6:00 PM IST<br/><a href=\"mailto:support@sculptornutritions.com\">support@sculptornutritions.com</a></p>",
+            "show_info_2": true,
+            "info_2_icon_type": "orders",
+            "info_2_title": "Orders & Returns",
+            "info_2_content": "<p>Questions about your order?<br/>We're here to help with tracking, returns, and exchanges.<br/><a href=\"/pages/shipping\">View shipping policy</a></p>",
+            "show_info_3": true,
+            "info_3_icon_type": "location",
+            "info_3_title": "Office Address",
+            "info_3_content": "<p>Sculptor Nutritions<br/>Mumbai, Maharashtra<br/>India</p>",
+            "show_info_4": true,
+            "info_4_icon_type": "clock",
+            "info_4_title": "Business Hours",
+            "info_4_content": "<p>Monday - Friday: 9:00 AM - 6:00 PM<br/>Saturday: 10:00 AM - 4:00 PM<br/>Sunday: Closed</p>",
+            "info_card_background": "#ffffff",
+            "info_card_padding": 28,
+            "info_card_gap": 20,
+            "info_card_icon_gap": 16,
+            "card_border_width": 1,
+            "card_border_color": "#e8e8e8",
+            "card_border_radius": 12,
+            "card_shadow_vertical": 4,
+            "card_shadow_blur": 12,
+            "card_shadow_opacity": 0.1,
+            "icon_size": 56,
+            "icon_image_size": 28,
+            "icon_background": "#f3f3f3",
+            "icon_color": "#0B2C6B",
+            "icon_border_radius": 12,
+            "info_title_size": 18,
+            "info_title_color": "#0b2c6b",
+            "info_text_size": 15,
+            "info_text_color": "#666666",
+            "info_link_color": "#121212"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b96c7a3_etKEf7"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "form"
+    "custom_hero_Adqf4W",
+    "1778669753ff598ce6"
   ]
 }
