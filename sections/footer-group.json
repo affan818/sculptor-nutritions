@@ -11,8 +11,13 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "1778941713e8a463a7": {
+      "type": "_blocks",
+      "settings": {}
+    },
     "custom_footer_HMXdcW": {
       "type": "custom-footer",
+      "disabled": true,
       "name": "Custom Footer",
       "settings": {
         "logo": "{{ shop.brand.cover_image }}",
@@ -39,6 +44,7 @@
     }
   },
   "order": [
+    "1778941713e8a463a7",
     "custom_footer_HMXdcW",
     "footer"
   ]

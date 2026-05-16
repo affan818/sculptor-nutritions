@@ -71,9 +71,9 @@
             "dot_active_style": "expand",
             "dot_active_width": 24,
             "dot_active_scale": 110,
-            "subtitle": "Premium Supplements",
-            "heading": "Transform Your Fitness Journey",
-            "description": "<p>Scientifically formulated supplements designed to help you achieve peak performance and optimal health.</p>",
+            "subtitle": "PREMIUM SUPPLEMENTS",
+            "heading": "Fuel Your Strength. Power Your Performance.",
+            "description": "<p>Scientifically formulated supplements made to support energy, strength, hydration, recovery, and everyday fitness goals. Designed for athletes, gym enthusiasts, and anyone committed to becoming stronger every day.</p>",
             "text_alignment": "left",
             "text_gap": 16,
             "subtitle_size": 14,
@@ -84,7 +84,7 @@
             "mobile_description_size": 14,
             "mobile_gap": 24,
             "mobile_padding": 24,
-            "primary_color": "#FF6B35",
+            "primary_color": "#ff6a00",
             "heading_color": "#0b2c6b",
             "text_color": "#4a4a4a",
             "primary_button_label": "Shop Now",
@@ -134,31 +134,31 @@
           "settings": {
             "icon": "shopify://shop_images/1_210df2a9-ef18-4898-9270-44ae980427ab.svg",
             "title": "Premium Quality",
-            "text": "Ingredients you can trust"
+            "text": "Trusted ingredients for daily performance."
           }
         },
         "badge_DBPx3f": {
           "type": "badge",
           "settings": {
             "icon": "shopify://shop_images/2.svg",
-            "title": "Premium Quality",
-            "text": "Ingredients you can trust"
+            "title": "Science Backed",
+            "text": "Research-driven formulas that work."
           }
         },
         "badge_4gE7f3": {
           "type": "badge",
           "settings": {
             "icon": "shopify://shop_images/3.svg",
-            "title": "Premium Quality",
-            "text": "Ingredients you can trust"
+            "title": "Fast & Reliable",
+            "text": "Easy to mix and consume daily."
           }
         },
         "badge_4HL8xG": {
           "type": "badge",
           "settings": {
             "icon": "shopify://shop_images/4.svg",
-            "title": "Premium Quality",
-            "text": "Ingredients you can trust"
+            "title": "Trusted Standards",
+            "text": "Tested for purity and quality."
           }
         }
       },
@@ -205,49 +205,49 @@
         "feature_apPLbA": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/7_5dea2d3b-4e1d-4509-b72c-1714dcf23fab.svg",
-            "title": "High Quality",
-            "text": "Premium ingredients"
+            "icon": "shopify://shop_images/3_1a894a1f-31bf-4720-8588-0c2f8e5d07c7.svg",
+            "title": "Premium Ingredients",
+            "text": "Carefully selected ingredients designed to support performance and recovery."
           }
         },
-        "feature_NwEtmQ": {
+        "feature_crtQig": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/7_5dea2d3b-4e1d-4509-b72c-1714dcf23fab.svg",
-            "title": "High Quality",
-            "text": "Premium ingredients"
+            "icon": "shopify://shop_images/2_52615350-b696-4b24-9165-314426cb729a.svg",
+            "title": "Science Backed Formulas",
+            "text": "Formulated using research-driven ingredients for real workout support."
           }
         },
-        "feature_BzfeFw": {
+        "feature_QLQWpk": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/7_5dea2d3b-4e1d-4509-b72c-1714dcf23fab.svg",
-            "title": "High Quality",
-            "text": "Premium ingredients"
+            "icon": "shopify://shop_images/2_05183eea-0994-4fa9-b3cb-3aee26264d57.svg",
+            "title": "Trusted Quality",
+            "text": "Manufactured with strict quality standards for purity and consistency."
           }
         },
-        "feature_nFpwdk": {
+        "feature_nqMDQh": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/7_5dea2d3b-4e1d-4509-b72c-1714dcf23fab.svg",
-            "title": "High Quality",
-            "text": "Premium ingredients"
+            "icon": "shopify://shop_images/4_2b0a03b1-ec0b-4fb0-a07a-979a733f58cf.svg",
+            "title": "Built for Performance",
+            "text": "Designed to help you train harder, recover faster, and perform better."
           }
         }
       },
       "block_order": [
         "feature_apPLbA",
-        "feature_NwEtmQ",
-        "feature_BzfeFw",
-        "feature_nFpwdk"
+        "feature_crtQig",
+        "feature_QLQWpk",
+        "feature_nqMDQh"
       ],
       "name": "Benefits Banner",
       "settings": {
         "main_image": "shopify://shop_images/Untitled_design_22.png",
         "subheading": "CLEAN. EFFECTIVE. TRUSTED.",
         "heading": "Supplements That Support Every Goal",
-        "description": "From gaining lean muscle to improving endurance, our supplements are designed to deliver real results.",
-        "button_label": "LEARN MORE",
+        "description": "Whether your goal is building strength, improving endurance, staying hydrated, or recovering better, Sculptor supplements are designed to support your fitness journey with effective and reliable formulations.",
+        "button_label": "Let's Connect.",
         "button_link": "shopify://pages/contact"
       }
     },
@@ -283,46 +283,68 @@
         "username": "Tag us @sculptor.nutritions to get featured."
       }
     },
-    "premium_testimonials_DDywhW": {
-      "type": "premium-testimonials",
+    "17789401923ead44d7": {
+      "type": "_blocks",
       "blocks": {
-        "testimonial_jT9Jhd": {
-          "type": "testimonial",
+        "ai_gen_block_97dbce1_AJ4p6x": {
+          "type": "ai_gen_block_97dbce1",
           "settings": {
-            "image": "shopify://shop_images/Untitled_design_19.png",
-            "name": "John Carter",
-            "role": "Fitness Athlete",
-            "review": "These supplements completely improved my recovery and performance. Highly recommended."
-          }
-        },
-        "testimonial_WCdjiA": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_19.png",
-            "name": "John Carter",
-            "role": "Fitness Athlete",
-            "review": "These supplements completely improved my recovery and performance. Highly recommended."
-          }
-        },
-        "testimonial_gtqY9c": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_19.png",
-            "name": "John Carter",
-            "role": "Fitness Athlete",
-            "review": "These supplements completely improved my recovery and performance. Highly recommended."
-          }
+            "title": "<h1><strong>What our customers say</strong></h1>",
+            "title_color": "#0b2c6b",
+            "title_size": 42,
+            "subtitle": "<p>Hear from our satisfied customers</p>",
+            "subtitle_color": "#6b7280",
+            "subtitle_size": 16,
+            "desktop_width_percent": 100,
+            "background_color": "#ffffff",
+            "text_color": "#121212",
+            "card_width": 350,
+            "card_gap": 20,
+            "card_background": "#f3f3f3",
+            "card_border_radius": 8,
+            "image_size": 60,
+            "star_size": 20,
+            "star_color": "#FFD700",
+            "empty_star_color": "#E0E0E0",
+            "review_text_size": 14,
+            "testimonial_1_enabled": true,
+            "testimonial_1_name": "Harsh K",
+            "testimonial_1_title": "",
+            "testimonial_1_rating": 5,
+            "testimonial_1_review": "I take Sculptor Eruption before my workouts and it gives me solid energy and focus. I feel more motivated and active throughout my training session.",
+            "testimonial_2_enabled": true,
+            "testimonial_2_name": "Vivek R",
+            "testimonial_2_title": "",
+            "testimonial_2_rating": 5,
+            "testimonial_2_review": "Sculptor Creatine helped me improve my strength during workouts. I feel more power while lifting, and recovery also feels better after training.",
+            "testimonial_3_enabled": true,
+            "testimonial_3_name": "Karan M",
+            "testimonial_3_title": "",
+            "testimonial_3_rating": 5,
+            "testimonial_3_review": "I started using Sculptor Creatine and Hydronic regularly, and I noticed better strength and faster recovery after workouts. Also mixes really well.",
+            "testimonial_4_enabled": true,
+            "testimonial_4_name": "Aman P",
+            "testimonial_4_title": "",
+            "testimonial_4_rating": 4,
+            "testimonial_4_review": "Sculptor Eruption gives me good energy and focus before my workout. I can train longer without feeling tired quickly.",
+            "testimonial_5_enabled": true,
+            "testimonial_5_name": "Rahul S",
+            "testimonial_5_title": "",
+            "testimonial_5_rating": 5,
+            "testimonial_5_review": "I’ve used many supplements before, but Sculptor feels different. The energy feels smooth, the flavours are good, and I feel more active during workouts.",
+            "testimonial_6_enabled": false,
+            "testimonial_6_name": "",
+            "testimonial_6_title": "",
+            "testimonial_6_rating": 5,
+            "testimonial_6_review": ""
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "testimonial_jT9Jhd",
-        "testimonial_WCdjiA",
-        "testimonial_gtqY9c"
+        "ai_gen_block_97dbce1_AJ4p6x"
       ],
-      "name": "Premium Testimonials",
-      "settings": {
-        "heading": "What Our Customers Say"
-      }
+      "settings": {}
     }
   },
   "order": [
@@ -332,6 +354,6 @@
     "featured_collection",
     "benefits_banner_UtVG3J",
     "community_reels_4yb3L3",
-    "premium_testimonials_DDywhW"
+    "17789401923ead44d7"
   ]
 }
