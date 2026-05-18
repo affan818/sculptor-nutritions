@@ -304,8 +304,8 @@
             "card_border_radius": 8,
             "image_size": 60,
             "star_size": 20,
-            "star_color": "#FFD700",
-            "empty_star_color": "#E0E0E0",
+            "star_color": "#ffd700",
+            "empty_star_color": "#e0e0e0",
             "review_text_size": 14,
             "testimonial_1_enabled": true,
             "testimonial_1_name": "Harsh K",
@@ -345,6 +345,86 @@
         "ai_gen_block_97dbce1_AJ4p6x"
       ],
       "settings": {}
+    },
+    "17790975124de44bb5": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_f555c66_x9WGiK": {
+          "type": "ai_gen_block_f555c66",
+          "settings": {
+            "logo": "shopify://shop_images/sculptor-logo_2.png",
+            "logo_width": 180,
+            "description": "<p>The answer to your protein needs</p>",
+            "description_font_size": 14,
+            "show_links_column_1": true,
+            "links_title_1": "Quick links",
+            "link_1_1_text": "About us",
+            "link_1_1_url": "shopify://pages/about",
+            "link_1_2_text": "Contact",
+            "link_1_2_url": "shopify://pages/contact",
+            "link_1_3_text": "FAQs",
+            "link_1_3_url": "",
+            "link_1_4_text": "",
+            "link_1_4_url": "",
+            "link_1_5_text": "",
+            "link_1_5_url": "",
+            "show_links_column_2": true,
+            "links_title_2": "Customer service",
+            "link_2_1_text": "Shipping policy",
+            "link_2_1_url": "",
+            "link_2_2_text": "Returns",
+            "link_2_2_url": "",
+            "link_2_3_text": "Privacy policy",
+            "link_2_3_url": "",
+            "link_2_4_text": "",
+            "link_2_4_url": "",
+            "link_2_5_text": "",
+            "link_2_5_url": "",
+            "show_links_column_3": false,
+            "links_title_3": "Information",
+            "link_3_1_text": "Blog",
+            "link_3_1_url": "",
+            "link_3_2_text": "Careers",
+            "link_3_2_url": "",
+            "link_3_3_text": "Terms of service",
+            "link_3_3_url": "",
+            "link_3_4_text": "",
+            "link_3_4_url": "",
+            "link_3_5_text": "",
+            "link_3_5_url": "",
+            "copyright_text": "",
+            "copyright_font_size": 14,
+            "show_payment_icons": true,
+            "show_visa": true,
+            "show_mastercard": true,
+            "show_amex": true,
+            "show_paypal": true,
+            "show_google_pay": true,
+            "show_apple_pay": false,
+            "payment_icon_size": 40,
+            "payment_icon_background": "#ffffff",
+            "background_color": "#0b2c6b",
+            "text_color": "#ffffff",
+            "link_color": "#ffffff",
+            "link_hover_color": "#cccccc",
+            "border_color": "#ffffff",
+            "heading_font_size": 16,
+            "link_font_size": 14,
+            "bottom_background_color": "#0b2c6b",
+            "bottom_text_color": "#ffffff",
+            "bottom_padding_bottom": 30,
+            "container_width": 1200,
+            "padding_top": 60,
+            "padding_bottom": 30,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_f555c66_x9WGiK"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -354,6 +434,7 @@
     "featured_collection",
     "benefits_banner_UtVG3J",
     "community_reels_4yb3L3",
-    "17789401923ead44d7"
+    "17789401923ead44d7",
+    "17790975124de44bb5"
   ]
 }

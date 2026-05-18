@@ -15,17 +15,20 @@
       "type": "_blocks",
       "settings": {}
     },
-    "custom_footer_HMXdcW": {
-      "type": "custom-footer",
-      "disabled": true,
-      "name": "Custom Footer",
-      "settings": {
-        "logo": "{{ shop.brand.cover_image }}",
-        "description": "Fuel your body. Build your best."
-      }
-    },
     "footer": {
       "type": "footer",
+      "blocks": {
+        "link_list_zBbf6j": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer"
+          }
+        }
+      },
+      "block_order": [
+        "link_list_zBbf6j"
+      ],
       "disabled": true,
       "settings": {
         "color_scheme": "scheme-1",
@@ -45,7 +48,6 @@
   },
   "order": [
     "1778941713e8a463a7",
-    "custom_footer_HMXdcW",
     "footer"
   ]
 }
